@@ -16,7 +16,7 @@ This workflow:
 
 ```bash
 docker build -t michaelwadman/antigravity-cli:1.0.6 -t michaelwadman/antigravity-cli:latest --build-arg ANTIGRAVITY_VERSION='1.0.6' .
-docker push -a michaelwadman/antigravity-cli:1.0.6
+docker push -a michaelwadman/antigravity-cli
 ```
 
 ## Setup and Use
