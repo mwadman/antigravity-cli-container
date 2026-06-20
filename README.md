@@ -50,7 +50,7 @@ docker run -it --rm --name antigravity-cli \
 
   - **Standard (Rootful) Docker**:
     Mount the default socket and add the host's docker group to the container user with `-v /var/run/docker.sock:/var/run/docker.sock --group-add $(stat -c '%g' /var/run/docker.sock)`.  
-    The `--group-add` flag is required because the socket is owned by root/docker group on the host; this grants the container's `node` user access.
+    The `--group-add` flag is required because the socket is owned by root/docker group on the host; this grants the container's user access.
 
   - **Rootless Docker**:
     Mount the user-specific socket (no `--group-add` required) with `-v $XDG_RUNTIME_DIR/docker.sock:/var/run/docker.sock`.  
