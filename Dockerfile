@@ -43,6 +43,18 @@ RUN install -m 0755 -d /etc/apt/keyrings && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Install kubectl
+RUN ARCH=$(dpkg --print-architecture) && \
+    curl -fsSLO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/${ARCH}/kubectl" && \
+    chmod +x kubectl && \
+    mv kubectl /usr/local/bin/
+
+# Install helm
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && \
+    chmod 700 get_helm.sh && \
+    ./get_helm.sh && \
+    rm get_helm.sh
+
 # Create directories (app for code, .gemini for agent configuration)
 RUN mkdir -p /app /root/.gemini/antigravity-cli /root/.ssh && \
     chmod 700 /root/.ssh
