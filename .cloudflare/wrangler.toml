@@ -1,0 +1,16 @@
+name = "antigravity-cli-container"
+main = "src/index.js"
+compatibility_date = "2026-10-03"
+workers_dev = false
+preview_urls = false
+
+# Disable anonymous telemetry
+send_metrics = false
+
+# Hourly cron schedule (at minute 0 of every hour)
+[triggers]
+crons = ["0 * * * *"]
+
+[[kv_namespaces]]
+binding = "WORKFLOW_STATE"
+id = "e4aaaedd686246f38fee1dcc705cb538"

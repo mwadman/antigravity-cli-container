@@ -5,7 +5,7 @@
 ### Automated Builds
 
 A Github action is defined in `.github/workflows/publish.yml` to build a new image and push this to Dockerhub.  
-This is triggered by a workflow in pipedream.com, which makes an POST request whenever a new version is available.
+This is triggered by a Cloudflare Worker (configuration in `.cloudflare/`), which makes an POST request whenever a new version is available.
 
 This workflow:
 
